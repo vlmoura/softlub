@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<!-- Layouts -->
+	<definition name="baseLayout" template="/jsp/layout/base.jsp">
+		<put-attribute name="title" value="Template Base" />
+		<put-attribute name="menu_top" value="/jsp/layout/menu_top.jsp" />
+		<put-attribute name="menu_left" value="/jsp/layout/menu_left.jsp" />
+		<put-attribute name="body" value="" />
+		<!-- <put-attribute name="footer" value="/jsp/layout/footer.jsp" /> -->
+	</definition>
+	
+	<!-- Home -->
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/jsp/home.jsp" />
+	</definition>
+	
+	<!-- Títulos -->
+	<definition name="Titulo_add" extends="baseLayout">
+		<put-attribute name="title" value="Adicionar Título" />
+		<put-attribute name="body" value="/jsp/titulo/input.jsp" />
+	</definition>
+	
+	<definition name="Titulo_list" extends="baseLayout">
+		<put-attribute name="title" value="Títulos" />
+		<put-attribute name="body" value="/jsp/titulo/list.jsp" />
+	</definition>
+	
+	<!-- Plano de Contas -->
+	<definition name="PlanoContas_add" extends="baseLayout">
+		<put-attribute name="title" value="Adicionar Plano de Contas" />
+		<put-attribute name="body" value="/jsp/plano_contas/input.jsp" />
+	</definition>
+	
+	<definition name="PlanoContas_list" extends="baseLayout">
+		<put-attribute name="title" value="Plano de Contas" />
+		<put-attribute name="body" value="/jsp/plano_contas/list.jsp" />
+	</definition>
+	
+	<!-- Lançamentos -->
+	<definition name="Lancamento_add" extends="baseLayout">
+		<put-attribute name="title" value="Adicionar Lançamento" />
+		<put-attribute name="body" value="/jsp/lancamento/input.jsp" />
+	</definition>
+	
+	<definition name="Lancamento_list" extends="baseLayout">
+		<put-attribute name="title" value="Lançamentos" />
+		<put-attribute name="body" value="/jsp/lancamento/list.jsp" />
+	</definition>
+	
+	<definition name="Lancamento_edit" extends="baseLayout">
+		<put-attribute name="title" value="Lançamentos" />
+		<put-attribute name="body" value="/jsp/lancamento/edit.jsp" />
+	</definition>
+	
+	<definition name="Lancamento_detail" extends="baseLayout">
+		<put-attribute name="title" value="Detalhe Lançamento" />
+		<put-attribute name="body" value="/jsp/lancamento/detail.jsp" />
+	</definition>
+
+</tiles-definitions>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- remove these constant elements in production -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+
+
+	<package name="softlub" namespace="/" extends="struts-default, json-default, jasperreports-default">
+
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="jasper" class="org.apache.struts2.views.jasperreports.JasperReportsResult" />
+		</result-types>
+
+
+
+		<!-- home -->
+		<action name="home">
+			<result type="tiles">home</result>
+		</action>
+
+		<!-- Add -->
+		<action name="*_add"  class="br.com.vlma.softlub.action.{1}Action"
+			method="add">
+			<result type="tiles">{1}_add</result>
+		</action>
+		
+		<!-- List -->
+		<action name="*_list" class="br.com.vlma.softlub.action.{1}Action"
+			method="getAll">
+			<result name="success" type="tiles">{1}_list</result>
+		</action>
+		
+		<!-- Save -->
+		<action name="*_save" class="br.com.vlma.softlub.action.{1}Action"
+			method="save">
+			<result type="redirectAction">{1}_list</result>
+		</action>
+		
+		<!-- Delete -->
+		<action name="*_delete" class="br.com.vlma.softlub.action.{1}Action"
+			method="delete">
+			<result name="success" type="redirectAction">{1}_list</result>
+		</action>
+		
+		<!-- Edit -->
+		<action name="*_edit"  class="br.com.vlma.softlub.action.{1}Action"
+			method="edit">
+			<result name="success" type="tiles">{1}_edit</result>
+		</action>
+		
+		<!-- Update -->
+		<action name="*_update"  class="br.com.vlma.softlub.action.{1}Action"
+			method="update">
+			<result name="success" type="redirectAction">{1}_list</result>
+		</action>
+		
+		<!-- Detail -->
+		<action name="*_detail"  class="br.com.vlma.softlub.action.{1}Action"
+			method="detail">
+			<result name="success" type="tiles">{1}_detail</result>
+		</action>
+		
+		
+		<!-- Download Arquivo -->
+		<action name="Download_Arquivo" class="br.com.vlma.softlub.action.DownloadArquivo"></action>
+		
+		
+
+		<!-- Jasper -->
+		 <action class="br.com.vlma.softlub.action.JasperTesteAction" name="StrutsJasperAction">  
+            <result name="success" type="jasper">  
+                <param name="location">/home/victor/projetos_maven/softlub/src/main/webapp/reports/saldo_conta.jasper</param>
+                <param name="reportParameters">paramets</param>
+                <param name="connection">currentSession</param>
+                <param name="format">PDF</param>
+            </result>  
+        </action>  
+		
+
+
+	</package>
+</struts>
